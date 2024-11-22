@@ -1,0 +1,20 @@
+{ 
+	"arm_length_cm": "62.0_tbr", 
+	"chest_circumference_cm": "80.0", 
+	"front_build_cm": "28.0_tbr", 
+	"hips_circumference_cm": "70.0", 
+	"leg_length_cm": "95.0", 
+	"neck_circumference_cm": "34.0", 
+	"neck_waist_length_front_cm": "49.0", 
+	"pelvis_circumference_cm": "74.0", 
+	"shoulder_width_cm": "37.0", 
+	"thigh_circumference_cm": "42.0", 
+	"under_chest_circumference_cm": "74.0", 
+	"waist_circumference_cm": "63.0", 
+	"height": "152.0", 
+	"weight": "43.0", 
+	"age": "19", 
+	"gender": "male", 
+	"race": "indian", 
+	"profession": "Others"
+}

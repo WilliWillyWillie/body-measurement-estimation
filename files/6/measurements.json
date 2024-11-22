@@ -1,0 +1,20 @@
+{ 
+	"arm_length_cm": "52.0", 
+	"chest_circumference_cm": "85.0", 
+	"front_build_cm": "30.0_tbr", 
+	"hips_circumference_cm": "71.0", 
+	"leg_length_cm": "92.0", 
+	"neck_circumference_cm": "32.0", 
+	"neck_waist_length_front_cm": "43.0", 
+	"pelvis_circumference_cm": "92.0", 
+	"shoulder_width_cm": "35.0", 
+	"thigh_circumference_cm": "54.0", 
+	"under_chest_circumference_cm": "76.0",  
+	"waist_circumference_cm": "69.0", 
+	"height": "155.0", 
+	"weight": "54.0", 
+	"age": "18", 
+	"gender": "female", 
+	"race": "caucasian", 
+	"profession": "Others"
+}

@@ -1,0 +1,20 @@
+{
+	"arm_length_cm": "66.0", 
+	"chest_circumference_cm": "90.0", 
+	"front_build_cm": "39.0", 
+	"hips_circumference_cm": "84.0", 
+	"leg_length_cm": "105.0", 
+	"neck_circumference_cm": "34.0", 
+	"neck_waist_length_front_cm": "45.0", 
+	"pelvis_circumference_cm": "92.0",  
+	"shoulder_width_cm": "41.0", 
+	"thigh_circumference_cm": "48.0", 
+	"under_chest_circumference_cm": "78.0",  
+	"waist_circumference_cm": "70.0", 
+	"height": "176.0", 
+	"weight": "60.0", 
+	"age": "18", 
+	"gender": "male", 
+	"race": "black", 
+	"profession": "Others"
+}

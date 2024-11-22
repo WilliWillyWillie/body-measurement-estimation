@@ -1,0 +1,12 @@
+Calculate Body Dimensions using Segmentation
+    Getting Segmentation:
+        1. Use MediaPipe Pose Landmarker.
+        2. When all keypoints are present with high confidence level get segmentation mask.
+        3. Extract necessary pose landmarker result and segmentation mask.
+    Measure Shoulder, Waist Width, Height, and etc. in pixels
+        1. Use pairs of keypoints to navigate the segmentation mask and move the keypoints to
+        the left or right, or up and down depending on where the keypoints are. Move keypoints
+        until the color is not white.
+        2. Using the the updated coordinated of the pairs of keypoints, get the x coordinates
+        (if getting width) or y coordinates(if getting height) and use the following formula to
+        get the width/height: to be formulated

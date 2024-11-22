@@ -1,0 +1,20 @@
+{ 
+	"arm_length_cm": "55.0", 
+	"chest_circumference_cm": "79.0", 
+	"front_build_cm": "31.0", 
+	"hips_circumference_cm": "70.0_tbr", 
+	"leg_length_cm": "95.0", 
+	"neck_circumference_cm": "33.0", 
+	"neck_waist_length_front_cm": "44.0", 
+	"pelvis_circumference_cm": "88.0", 
+	"shoulder_width_cm": "40.0", 
+	"thigh_circumference_cm": "49.0", 
+	"under_chest_circumference_cm": "71.0",  
+	"waist_circumference_cm": "68.0", 
+	"height": "159.0", 
+	"weight": "49.0", 
+	"age": "34", 
+	"gender": "female", 
+	"race": "latino", 
+	"profession": "Employees"
+}
