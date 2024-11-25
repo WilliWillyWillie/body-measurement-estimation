@@ -1,3 +1,6 @@
+# This program was used in BodyM_dataset which was removed in this repository
+# The result was stored in "./training_data"
+
 # STEP 1: Import dependencies
 import pandas as pd
 import shutil
@@ -19,8 +22,8 @@ merged_cleaned = merged_cleaned.drop(columns=['subject_id'])
 merged_cleaned = merged_cleaned.drop(columns=['chest'])
 
 # STEP 6: Remove PNG duplicates on bodyM_dataset/train/mask and store in a separate folder
-# for row in merged_cleaned.itertuples():
-#     shutil.copy(f"bodyM_dataset/train/mask/{row.photo_id}.png", "training_data")
+for row in merged_cleaned.itertuples():
+    shutil.copy(f"bodyM_dataset/train/mask/{row.photo_id}.png", "training_data")
 
 # STEP 7: Output merged variable into a CSV
 merged_cleaned.to_csv("metadata.csv", index=False)
