@@ -3,6 +3,7 @@ import mediapipe as mp
 import numpy as np
 import cv2
 import math
+import joblib
 
 # Step 2: Initialize configuration values for the Mediapipe Pose Landmarker.
 model_path = "./model/pose_landmarker_lite.task"
@@ -10,6 +11,7 @@ num_poses = 1
 min_pose_detection_confidence = 0.7
 min_pose_presence_confidence = 0.7
 min_tracking_confidence = 0.7
+img_path = "./william.png"
 
 # Optional: Initialize values for Mediapipe Pose Landmarker options.
 BaseOptions = mp.tasks.BaseOptions
@@ -32,7 +34,7 @@ def main():
     )
     with PoseLandmarker.create_from_options(options) as landmarker:
         # STEP 4: Load the input image and get image info.
-        image = cv2.imread("william.png")
+        image = cv2.imread(img_path)
         mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=image)
         img_height, img_width, _ = image.shape
 
@@ -51,7 +53,17 @@ def main():
         )
 
         # Step 8: Transform coordinates into 2d measurements in cm
-        measurements_2d = coords_to_measurements(normalized_coords, visualized_mask)
+        measurements = coords_to_measurements(normalized_coords, visualized_mask)
+
+        print(measurements)
+
+        for part in measurements:
+            if part in ['ankle-width', 'bicep-width', 'calf-width', 'forearm-width', 'hip-width', 'thigh-width', 'waist-width', 'wrist-width']:
+                measurements[part] = predict_3d_measurement(part.split('-')[0], measurements[part])
+                part = f'{part.split('-')[0]}-girth'
+
+        print(measurements)
+
 
 
 def normalize_poselandmarks(pose_landmarks_list, height, width):
@@ -81,23 +93,19 @@ def coords_to_measurements(coords, mask):
         "wrist-width": [coords[11], coords[15]],
     }
 
+    i = 8
+
+
+    upper_edge = searchVerticalEdge(measurement_points['height'][0], -i, mask)
+    lower_edge = searchVerticalEdge(measurement_points['height'][1], i, mask)
+    measurement_points['height'] = actual_height
+    cm_per_px = actual_height / (lower_edge[1] - upper_edge[1])
+
     for part in measurement_points:
-        i = 8
-
-        if part == "height":
-            upper_edge = searchVerticalEdge(measurement_points[part][0], -i, mask)
-            lower_edge = searchVerticalEdge(measurement_points[part][1], i, mask)
-            measurement_points[part] = actual_height
-            print(f"Height distance: {lower_edge[1] - upper_edge[1]}")
-            cm_per_px = actual_height / (lower_edge[1] - upper_edge[1])
-
-        elif part == "ankle-width":
+        if part == "ankle-width":
             left_edge = searchHorizontalEdge(measurement_points[part], -i, mask)
             right_edge = searchHorizontalEdge(measurement_points[part], i, mask)
-            measurement_points[part] = right_edge[0] - left_edge[0]
-            print(
-                f"[Part: {part}\nLeft Edge: {left_edge}\nRight Edge: {right_edge}\nLength: {measurement_points[part]}]"
-            )
+            measurement_points[part] = (right_edge[0] - left_edge[0])
 
         elif part in ["arm-length", "leg-length"]:
             m = getSlope(measurement_points[part][0], measurement_points[part][1])
@@ -106,9 +114,6 @@ def coords_to_measurements(coords, mask):
                 measurement_points[part][0], measurement_points[part][1], m, i, mask
             )
             measurement_points[part] = findPointDistance(upper_edge, lower_edge)
-            print(
-                f"[Part: {part}\nUpper Edge: {upper_edge}\nLower Edge: {lower_edge}\nLength: {measurement_points[part]}]"
-            )
 
         elif part in [
             "bicep-width",
@@ -145,17 +150,11 @@ def coords_to_measurements(coords, mask):
                 traversing_point, traversing_point, mpen, -i, mask
             )
             measurement_points[part] = findPointDistance(upper_edge, lower_edge)
-            print(
-                f"[Part: {part}\nUpper Edge: {upper_edge}\nLower Edge: {lower_edge}\nLength: {measurement_points[part]}]"
-            )
 
         elif part in ["hip-width", "shoulder-breadth"]:
             left_edge = searchHorizontalEdge(measurement_points[part][1], -i, mask)
             right_edge = searchHorizontalEdge(measurement_points[part][0], i, mask)
-            measurement_points[part] = right_edge[0] - left_edge[0]
-            print(
-                f"[Part: {part}\nLeft Edge: {left_edge}\nRight Edge: {right_edge}\nLength: {measurement_points[part]}]"
-            )
+            measurement_points[part] = (right_edge[0] - left_edge[0])
 
         elif part == "shoulder-to-crotch-length":
             # Lower edge gets the bottom most part of the crotch area
@@ -169,9 +168,6 @@ def coords_to_measurements(coords, mask):
                 measurement_points[part][0], lower_edge, m, i, mask
             )
             measurement_points[part] = findPointDistance(upper_edge, lower_edge)
-            print(
-                f"[Part: {part}\nUpper Edge: {upper_edge}\nLower Edge: {lower_edge}\nLength: {measurement_points[part]}]"
-            )
 
         elif part == "waist-width":
             traversing_point = getLowerPartialPoint(
@@ -179,18 +175,53 @@ def coords_to_measurements(coords, mask):
             )
             left_edge = searchHorizontalEdge(traversing_point, -i, mask)
             right_edge = searchHorizontalEdge(traversing_point, i, mask)
-            measurement_points[part] = right_edge[0] - left_edge[0]
-            print(
-                f"[Part: {part}\nLeft Edge: {left_edge}\nRight Edge: {right_edge}\nLength: {measurement_points[part]}]"
-            )
+            measurement_points[part] = (right_edge[0] - left_edge[0])
     
     # Convert pixel to cm measurement and account for the 10% margin of error
-    error_margin = .1 + 1
     for part in measurement_points:
+        if part in ['forearm-width', 'hip-width', 'thigh-width']:
+            error_margin = .85
+        elif part in ['waist-width']:
+            error_margin = .9
+        else:
+            error_margin = 1
         if part != "height":
             measurement_points[part] = measurement_points[part] * cm_per_px * error_margin
-            print(f"{part}: {measurement_points[part]}")
 
+    return measurement_points
+
+def predict_3d_measurement(part, est_2d_value):
+    if part in ['bicep', 'thigh', 'wrist', 'forearm']:
+        """Predicts a 3D measurement given a 2D input."""
+        model_data = joblib.load(f'./model/SVR/svr_{part}_model.pkl')
+        model, scaler_x, scaler_y = model_data['model'], model_data['scaler_x'], model_data['scaler_y']
+
+        # Prepare input
+        new_x_scaled = scaler_x.transform([[est_2d_value]])
+        pred_scaled = model.predict(new_x_scaled)
+        predicted_3d = scaler_y.inverse_transform(pred_scaled.reshape(-1, 1))
+
+        return predicted_3d[0][0]
+    elif part in ['ankle', 'calf', 'hip', 'waist']:
+        """Predicts a 3D measurement given a 2D input using a Polynomial Regression model."""
+        # Load the polynomial model and associated scalers
+        model_data = joblib.load(f'./model/SVR/poly_{part}_model.pkl')
+        model, scaler_x, scaler_y, poly_features = (
+            model_data['model'],
+            model_data['scaler_x'],
+            model_data['scaler_y'],
+            model_data['poly_features'],
+        )
+
+        # Transform and scale the input
+        new_x_poly = poly_features.transform([[est_2d_value]])
+        new_x_scaled = scaler_x.transform(new_x_poly)
+
+        # Predict and inverse-transform the output
+        pred_scaled = model.predict(new_x_scaled)
+        predicted_3d = scaler_y.inverse_transform(pred_scaled.reshape(-1, 1))
+
+        return predicted_3d[0][0]
 
 def searchVerticalEdge(coords, step, mask):
     x, y = coords

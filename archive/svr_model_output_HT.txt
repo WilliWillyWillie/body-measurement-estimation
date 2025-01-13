@@ -1,0 +1,536 @@
+
+Best Hyperparameters for ankle found by GridSearchCV: {'C': 10, 'epsilon': 0.3, 'gamma': 0.01}
+
+Actual vs Predicted Values for ankle (for the test set):
+Actual: 23.673317, Predicted: 25.461958
+Actual: 22.686010, Predicted: 24.751287
+Actual: 28.037815, Predicted: 27.225881
+Actual: 29.220444, Predicted: 27.082136
+Actual: 25.405138, Predicted: 26.132150
+Actual: 23.407967, Predicted: 25.862020
+Actual: 22.549871, Predicted: 23.272176
+Actual: 25.864634, Predicted: 26.445688
+Actual: 24.303141, Predicted: 26.362765
+Actual: 25.154480, Predicted: 23.891545
+Actual: 24.948172, Predicted: 25.232986
+Actual: 25.259779, Predicted: 26.364609
+Actual: 25.271940, Predicted: 23.990681
+Actual: 26.393881, Predicted: 24.886219
+Actual: 25.158501, Predicted: 24.665821
+Actual: 26.048655, Predicted: 24.587121
+Actual: 28.310143, Predicted: 26.672879
+Actual: 27.519575, Predicted: 26.304565
+Actual: 25.371609, Predicted: 24.803825
+Actual: 25.362238, Predicted: 24.000726
+Actual: 27.996357, Predicted: 26.942864
+Actual: 25.512667, Predicted: 27.681897
+Actual: 24.616209, Predicted: 25.685707
+Actual: 29.079845, Predicted: 28.056279
+Actual: 25.162214, Predicted: 25.573842
+Actual: 24.615353, Predicted: 25.896604
+Actual: 25.233662, Predicted: 25.151950
+Actual: 24.418947, Predicted: 25.381793
+Actual: 24.779566, Predicted: 26.904110
+Actual: 22.039124, Predicted: 23.114802
+Actual: 23.392481, Predicted: 26.183965
+Actual: 24.806837, Predicted: 25.808903
+Actual: 24.982481, Predicted: 25.686219
+Actual: 22.124901, Predicted: 24.377238
+Actual: 28.127602, Predicted: 26.771761
+Actual: 23.118240, Predicted: 24.687456
+Actual: 25.777599, Predicted: 25.528200
+Actual: 23.274157, Predicted: 23.871785
+Actual: 25.535555, Predicted: 26.940441
+Actual: 26.532248, Predicted: 27.385465
+Actual: 25.731016, Predicted: 25.584666
+Actual: 26.255537, Predicted: 25.712288
+Actual: 26.831165, Predicted: 26.846572
+Actual: 23.004866, Predicted: 24.614144
+Actual: 26.812181, Predicted: 26.937677
+Actual: 24.754183, Predicted: 25.845746
+Actual: 21.858479, Predicted: 23.037814
+Actual: 25.164038, Predicted: 26.178267
+Actual: 25.041790, Predicted: 23.865773
+Actual: 23.286049, Predicted: 24.476654
+Actual: 24.994495, Predicted: 24.708940
+Actual: 24.049780, Predicted: 24.063567
+Actual: 28.582001, Predicted: 27.345658
+Actual: 23.742420, Predicted: 23.737449
+
+ankle - SVR Test Set Evaluation Metrics:
+Mean Squared Error (MSE): 1.6486
+Mean Absolute Error (MAE): 1.0961
+R-squared (R²): 0.4744
+Mean Absolute Percentage Error (MAPE): 4.40%
+Root Mean Squared Error (RMSE): 1.2840
+
+Model, scalers, and evaluation metrics for ankle saved.
+
+Best Hyperparameters for bicep found by GridSearchCV: {'C': 1000, 'epsilon': 0.4, 'gamma': 0.01}
+
+Actual vs Predicted Values for bicep (for the test set):
+Actual: 36.065742, Predicted: 34.918237
+Actual: 36.124207, Predicted: 36.178365
+Actual: 35.637455, Predicted: 34.153655
+Actual: 34.627411, Predicted: 35.561569
+Actual: 31.811598, Predicted: 31.906145
+Actual: 35.420574, Predicted: 34.409293
+Actual: 33.670109, Predicted: 34.974593
+Actual: 36.521980, Predicted: 35.464544
+Actual: 33.913857, Predicted: 34.585214
+Actual: 35.026409, Predicted: 34.174742
+Actual: 33.199188, Predicted: 35.840409
+Actual: 33.755280, Predicted: 34.669642
+Actual: 34.894318, Predicted: 34.426850
+Actual: 33.860100, Predicted: 35.823785
+Actual: 34.625584, Predicted: 36.298139
+Actual: 37.569885, Predicted: 36.066013
+Actual: 35.370060, Predicted: 34.053117
+Actual: 33.926300, Predicted: 36.252352
+Actual: 39.011608, Predicted: 36.458847
+Actual: 32.930351, Predicted: 35.787253
+Actual: 36.514324, Predicted: 35.916833
+Actual: 34.072277, Predicted: 33.027143
+Actual: 31.075193, Predicted: 33.983323
+Actual: 31.321239, Predicted: 32.329858
+Actual: 39.685432, Predicted: 36.013036
+Actual: 38.282135, Predicted: 34.577505
+Actual: 39.389599, Predicted: 35.396058
+Actual: 37.402782, Predicted: 35.500009
+Actual: 34.613113, Predicted: 34.569505
+Actual: 34.395050, Predicted: 31.525026
+Actual: 33.188709, Predicted: 34.321073
+Actual: 33.941685, Predicted: 34.777878
+Actual: 34.317780, Predicted: 35.031360
+Actual: 32.057804, Predicted: 32.566068
+Actual: 38.040016, Predicted: 35.388735
+Actual: 40.170555, Predicted: 36.013083
+Actual: 33.405174, Predicted: 32.318113
+Actual: 31.168224, Predicted: 35.709154
+Actual: 35.349575, Predicted: 34.367955
+Actual: 38.705280, Predicted: 35.144123
+Actual: 37.814026, Predicted: 35.806820
+Actual: 34.014664, Predicted: 34.638802
+Actual: 33.419155, Predicted: 33.425357
+Actual: 35.990238, Predicted: 34.647225
+Actual: 34.326332, Predicted: 33.794056
+Actual: 35.410946, Predicted: 36.640780
+Actual: 33.822388, Predicted: 35.674405
+Actual: 35.483841, Predicted: 33.086047
+Actual: 35.162773, Predicted: 34.727945
+Actual: 39.650200, Predicted: 36.174248
+Actual: 30.598415, Predicted: 32.590678
+Actual: 35.179970, Predicted: 34.826929
+Actual: 33.119221, Predicted: 32.890498
+Actual: 32.247562, Predicted: 34.327801
+
+bicep - SVR Test Set Evaluation Metrics:
+Mean Squared Error (MSE): 3.9738
+Mean Absolute Error (MAE): 1.6167
+R-squared (R²): 0.2620
+Mean Absolute Percentage Error (MAPE): 4.56%
+Root Mean Squared Error (RMSE): 1.9934
+
+Model, scalers, and evaluation metrics for bicep saved.
+
+Best Hyperparameters for calf found by GridSearchCV: {'C': 10, 'epsilon': 0.01, 'gamma': 0.1}
+
+Actual vs Predicted Values for calf (for the test set):
+Actual: 39.871361, Predicted: 41.556395
+Actual: 38.969395, Predicted: 40.458627
+Actual: 44.169125, Predicted: 42.798163
+Actual: 43.116215, Predicted: 41.782259
+Actual: 40.323730, Predicted: 41.074656
+Actual: 37.577099, Predicted: 41.061934
+Actual: 37.305794, Predicted: 36.700314
+Actual: 38.483032, Predicted: 40.412651
+Actual: 41.867054, Predicted: 41.980434
+Actual: 39.876194, Predicted: 38.127237
+Actual: 41.032497, Predicted: 40.061839
+Actual: 42.667862, Predicted: 41.838058
+Actual: 38.119602, Predicted: 39.297335
+Actual: 43.002018, Predicted: 42.911584
+Actual: 42.452251, Predicted: 41.143181
+Actual: 37.784924, Predicted: 37.681031
+Actual: 39.393135, Predicted: 41.965646
+Actual: 42.803211, Predicted: 41.959574
+Actual: 40.850945, Predicted: 41.989782
+Actual: 42.180897, Predicted: 41.220625
+Actual: 43.799892, Predicted: 42.871942
+Actual: 43.275902, Predicted: 42.560638
+Actual: 36.688808, Predicted: 39.822434
+Actual: 44.821980, Predicted: 43.136685
+Actual: 42.677895, Predicted: 41.622213
+Actual: 41.463593, Predicted: 42.267128
+Actual: 42.416393, Predicted: 41.852033
+Actual: 40.938717, Predicted: 41.169337
+Actual: 38.104267, Predicted: 41.934789
+Actual: 38.718014, Predicted: 40.658972
+Actual: 38.345200, Predicted: 41.486683
+Actual: 39.047855, Predicted: 41.017264
+Actual: 41.469940, Predicted: 41.888792
+Actual: 36.974796, Predicted: 40.641911
+Actual: 45.033001, Predicted: 42.091227
+Actual: 39.945595, Predicted: 41.888101
+Actual: 42.097691, Predicted: 41.598441
+Actual: 39.707432, Predicted: 39.961899
+Actual: 41.169083, Predicted: 42.083264
+Actual: 40.284134, Predicted: 41.650074
+Actual: 39.320610, Predicted: 41.257824
+Actual: 41.618568, Predicted: 40.600859
+Actual: 44.821918, Predicted: 42.674106
+Actual: 39.476437, Predicted: 40.938776
+Actual: 40.917355, Predicted: 41.246017
+Actual: 40.903065, Predicted: 41.615502
+Actual: 32.240192, Predicted: 35.267051
+Actual: 41.787807, Predicted: 42.222474
+Actual: 40.223465, Predicted: 37.472897
+Actual: 39.964336, Predicted: 41.342494
+Actual: 42.152359, Predicted: 40.637064
+Actual: 39.761395, Predicted: 39.336407
+Actual: 43.577827, Predicted: 43.067645
+Actual: 41.343590, Predicted: 41.140503
+
+calf - SVR Test Set Evaluation Metrics:
+Mean Squared Error (MSE): 2.8528
+Mean Absolute Error (MAE): 1.3771
+R-squared (R²): 0.4952
+Mean Absolute Percentage Error (MAPE): 3.46%
+Root Mean Squared Error (RMSE): 1.6890
+
+Model, scalers, and evaluation metrics for calf saved.
+
+Best Hyperparameters for forearm found by GridSearchCV: {'C': 1, 'epsilon': 0.3, 'gamma': 0.1}
+
+Actual vs Predicted Values for forearm (for the test set):
+Actual: 28.831341, Predicted: 28.802446
+Actual: 27.332748, Predicted: 28.457781
+Actual: 30.726158, Predicted: 29.697014
+Actual: 30.274075, Predicted: 31.030004
+Actual: 27.671721, Predicted: 27.777918
+Actual: 27.503935, Predicted: 29.078475
+Actual: 27.629066, Predicted: 27.833397
+Actual: 30.144402, Predicted: 29.017411
+Actual: 27.534142, Predicted: 27.351888
+Actual: 27.152552, Predicted: 27.679546
+Actual: 28.129274, Predicted: 29.803824
+Actual: 30.009352, Predicted: 29.058537
+Actual: 29.016590, Predicted: 28.869265
+Actual: 29.558374, Predicted: 28.215656
+Actual: 29.679583, Predicted: 30.211564
+Actual: 31.807644, Predicted: 31.409521
+Actual: 30.582531, Predicted: 29.401572
+Actual: 30.789465, Predicted: 30.874005
+Actual: 33.707657, Predicted: 31.378717
+Actual: 28.851345, Predicted: 29.265540
+Actual: 30.678226, Predicted: 29.058445
+Actual: 28.654713, Predicted: 27.957853
+Actual: 28.214125, Predicted: 28.810379
+Actual: 28.589270, Predicted: 27.574760
+Actual: 32.763889, Predicted: 29.891776
+Actual: 29.725756, Predicted: 26.877437
+Actual: 29.861279, Predicted: 30.143591
+Actual: 28.350487, Predicted: 28.959910
+Actual: 28.550409, Predicted: 29.953208
+Actual: 26.320215, Predicted: 26.902179
+Actual: 27.174353, Predicted: 27.514607
+Actual: 28.826616, Predicted: 28.785367
+Actual: 27.304302, Predicted: 27.774694
+Actual: 26.485785, Predicted: 27.083017
+Actual: 32.988766, Predicted: 31.436542
+Actual: 31.566771, Predicted: 31.152787
+Actual: 30.633587, Predicted: 27.931190
+Actual: 25.937130, Predicted: 27.211538
+Actual: 30.158234, Predicted: 28.516776
+Actual: 30.524172, Predicted: 29.163541
+Actual: 31.789730, Predicted: 31.141128
+Actual: 27.151224, Predicted: 28.706907
+Actual: 31.169121, Predicted: 30.356224
+Actual: 27.379797, Predicted: 28.880903
+Actual: 29.768024, Predicted: 27.659787
+Actual: 28.078690, Predicted: 28.930426
+Actual: 26.916849, Predicted: 28.652389
+Actual: 29.061438, Predicted: 27.685764
+Actual: 29.685604, Predicted: 30.276431
+Actual: 29.167526, Predicted: 29.724692
+Actual: 27.379715, Predicted: 28.088195
+Actual: 26.531393, Predicted: 27.409050
+Actual: 30.322460, Predicted: 29.170967
+Actual: 26.526743, Predicted: 28.934081
+
+forearm - SVR Test Set Evaluation Metrics:
+Mean Squared Error (MSE): 1.5783
+Mean Absolute Error (MAE): 1.0281
+R-squared (R²): 0.5188
+Mean Absolute Percentage Error (MAPE): 3.51%
+Root Mean Squared Error (RMSE): 1.2563
+
+Model, scalers, and evaluation metrics for forearm saved.
+
+Best Hyperparameters for hip found by GridSearchCV: {'C': 100, 'epsilon': 0.001, 'gamma': 0.1}
+
+Actual vs Predicted Values for hip (for the test set):
+Actual: 126.020668, Predicted: 117.625542
+Actual: 118.779305, Predicted: 115.212088
+Actual: 118.808945, Predicted: 113.019177
+Actual: 116.151932, Predicted: 114.372206
+Actual: 111.091911, Predicted: 115.542062
+Actual: 110.971001, Predicted: 116.153213
+Actual: 111.890450, Predicted: 116.568674
+Actual: 115.621834, Predicted: 115.385646
+Actual: 112.037605, Predicted: 115.801086
+Actual: 126.880081, Predicted: 118.640274
+Actual: 119.799706, Predicted: 119.354056
+Actual: 113.162498, Predicted: 112.930234
+Actual: 112.576523, Predicted: 112.746426
+Actual: 123.624519, Predicted: 118.245586
+Actual: 109.420303, Predicted: 111.070040
+Actual: 112.603287, Predicted: 115.602926
+Actual: 119.813774, Predicted: 115.667039
+Actual: 115.017960, Predicted: 116.799439
+Actual: 110.954910, Predicted: 116.884161
+Actual: 112.404533, Predicted: 117.177219
+Actual: 119.546333, Predicted: 116.082602
+Actual: 109.717438, Predicted: 113.088247
+Actual: 123.698967, Predicted: 116.870664
+Actual: 116.826584, Predicted: 116.885494
+Actual: 117.250633, Predicted: 111.285549
+Actual: 111.061081, Predicted: 114.597732
+Actual: 123.125084, Predicted: 117.729879
+Actual: 113.552277, Predicted: 114.752033
+Actual: 109.529465, Predicted: 115.079106
+Actual: 115.512253, Predicted: 110.885206
+Actual: 117.960701, Predicted: 117.356140
+Actual: 110.396614, Predicted: 111.739615
+Actual: 123.516052, Predicted: 117.666122
+Actual: 112.449913, Predicted: 111.439329
+Actual: 112.696220, Predicted: 114.494971
+Actual: 110.936066, Predicted: 115.887504
+Actual: 105.530571, Predicted: 109.885520
+Actual: 115.849655, Predicted: 117.867641
+Actual: 118.490517, Predicted: 113.500087
+Actual: 117.389984, Predicted: 113.260734
+Actual: 114.902504, Predicted: 116.500192
+Actual: 112.388695, Predicted: 117.450015
+Actual: 108.952927, Predicted: 110.946235
+Actual: 117.401947, Predicted: 116.489412
+Actual: 111.614105, Predicted: 112.375982
+Actual: 116.331856, Predicted: 116.201932
+Actual: 113.816498, Predicted: 115.234962
+Actual: 115.595978, Predicted: 114.455171
+Actual: 118.335785, Predicted: 117.389476
+Actual: 122.022881, Predicted: 118.952483
+Actual: 111.039177, Predicted: 117.009751
+Actual: 116.989006, Predicted: 116.318885
+Actual: 115.244728, Predicted: 112.920355
+Actual: 108.682419, Predicted: 116.723932
+
+hip - SVR Test Set Evaluation Metrics:
+Mean Squared Error (MSE): 16.1881
+Mean Absolute Error (MAE): 3.3088
+R-squared (R²): 0.2703
+Mean Absolute Percentage Error (MAPE): 2.86%
+Root Mean Squared Error (RMSE): 4.0234
+
+Model, scalers, and evaluation metrics for hip saved.
+
+Best Hyperparameters for thigh found by GridSearchCV: {'C': 0.1, 'epsilon': 0.4, 'gamma': 1}
+
+Actual vs Predicted Values for thigh (for the test set):
+Actual: 60.237022, Predicted: 60.766632
+Actual: 60.904179, Predicted: 60.988174
+Actual: 65.258347, Predicted: 60.567753
+Actual: 60.866940, Predicted: 60.516804
+Actual: 63.069538, Predicted: 61.142579
+Actual: 64.920425, Predicted: 61.370284
+Actual: 61.339611, Predicted: 61.300172
+Actual: 61.036644, Predicted: 61.142896
+Actual: 61.810535, Predicted: 59.760940
+Actual: 65.843864, Predicted: 61.438961
+Actual: 61.616455, Predicted: 61.159065
+Actual: 58.524456, Predicted: 60.002649
+Actual: 56.564571, Predicted: 59.709226
+Actual: 67.315666, Predicted: 61.236292
+Actual: 59.441441, Predicted: 59.806647
+Actual: 59.253029, Predicted: 60.475010
+Actual: 62.541759, Predicted: 60.317266
+Actual: 57.929298, Predicted: 60.600157
+Actual: 56.806355, Predicted: 61.421845
+Actual: 59.189919, Predicted: 61.361271
+Actual: 63.090816, Predicted: 60.129181
+Actual: 60.607319, Predicted: 61.418233
+Actual: 64.267685, Predicted: 59.737652
+Actual: 60.015533, Predicted: 60.335681
+Actual: 63.124615, Predicted: 61.011263
+Actual: 59.353645, Predicted: 60.966795
+Actual: 67.980377, Predicted: 59.956409
+Actual: 61.353062, Predicted: 61.228868
+Actual: 58.656673, Predicted: 60.717931
+Actual: 57.961468, Predicted: 61.056093
+Actual: 59.918568, Predicted: 61.473410
+Actual: 56.378181, Predicted: 60.362400
+Actual: 65.292496, Predicted: 60.354190
+Actual: 53.404606, Predicted: 60.473787
+Actual: 62.979385, Predicted: 60.895685
+Actual: 59.589741, Predicted: 61.352175
+Actual: 56.489361, Predicted: 60.843107
+Actual: 62.346394, Predicted: 61.254341
+Actual: 61.185669, Predicted: 61.055323
+Actual: 59.197056, Predicted: 60.705171
+Actual: 61.742321, Predicted: 60.748014
+Actual: 62.246742, Predicted: 61.288554
+Actual: 60.761795, Predicted: 61.038545
+Actual: 63.038200, Predicted: 61.150171
+Actual: 59.975044, Predicted: 59.717001
+Actual: 64.102234, Predicted: 61.154997
+Actual: 55.056572, Predicted: 59.902818
+Actual: 59.150932, Predicted: 59.731047
+Actual: 62.970367, Predicted: 59.758059
+Actual: 71.169304, Predicted: 60.772415
+Actual: 65.840981, Predicted: 61.457045
+Actual: 61.513531, Predicted: 60.416338
+Actual: 57.596878, Predicted: 59.748287
+Actual: 59.734879, Predicted: 61.371898
+
+thigh - SVR Test Set Evaluation Metrics:
+Mean Squared Error (MSE): 10.6198
+Mean Absolute Error (MAE): 2.4429
+R-squared (R²): 0.0153
+Mean Absolute Percentage Error (MAPE): 3.96%
+Root Mean Squared Error (RMSE): 3.2588
+
+Model, scalers, and evaluation metrics for thigh saved.
+
+Best Hyperparameters for waist found by GridSearchCV: {'C': 1000, 'epsilon': 0.5, 'gamma': 0.01}
+
+Actual vs Predicted Values for waist (for the test set):
+Actual: 103.704651, Predicted: 109.615197
+Actual: 108.403397, Predicted: 110.771803
+Actual: 107.211929, Predicted: 109.806705
+Actual: 106.485580, Predicted: 109.401079
+Actual: 93.185043, Predicted: 99.748026
+Actual: 99.538284, Predicted: 102.826534
+Actual: 97.481155, Predicted: 110.421318
+Actual: 103.935814, Predicted: 109.053436
+Actual: 96.332123, Predicted: 106.022200
+Actual: 102.950256, Predicted: 104.655093
+Actual: 103.148720, Predicted: 107.083611
+Actual: 111.722107, Predicted: 109.539411
+Actual: 112.243965, Predicted: 110.548556
+Actual: 110.511253, Predicted: 110.639688
+Actual: 106.588242, Predicted: 108.357039
+Actual: 114.165405, Predicted: 109.961448
+Actual: 118.219971, Predicted: 109.867123
+Actual: 110.885811, Predicted: 110.565824
+Actual: 109.361137, Predicted: 110.497264
+Actual: 108.179581, Predicted: 110.751290
+Actual: 110.851250, Predicted: 110.313505
+Actual: 108.401443, Predicted: 106.279711
+Actual: 112.038963, Predicted: 110.769926
+Actual: 112.812347, Predicted: 110.705534
+Actual: 106.471481, Predicted: 105.928796
+Actual: 103.725975, Predicted: 106.513568
+Actual: 110.021660, Predicted: 109.984600
+Actual: 100.427406, Predicted: 103.130596
+Actual: 103.395119, Predicted: 104.467218
+Actual: 109.468994, Predicted: 106.018130
+Actual: 106.014206, Predicted: 100.096710
+Actual: 107.012527, Predicted: 107.035937
+Actual: 110.304901, Predicted: 109.053530
+Actual: 105.533264, Predicted: 102.093640
+Actual: 103.167038, Predicted: 108.756277
+Actual: 101.950630, Predicted: 110.002125
+Actual: 100.893555, Predicted: 103.040306
+Actual: 94.395813, Predicted: 91.492526
+Actual: 111.081726, Predicted: 110.015848
+Actual: 122.240013, Predicted: 110.690541
+Actual: 107.058517, Predicted: 108.903698
+Actual: 100.019127, Predicted: 110.738343
+Actual: 103.954918, Predicted: 102.254968
+Actual: 109.444160, Predicted: 108.019860
+Actual: 102.093048, Predicted: 107.439856
+Actual: 94.330246, Predicted: 90.090170
+Actual: 117.426147, Predicted: 107.889370
+Actual: 116.707924, Predicted: 109.381684
+Actual: 115.012527, Predicted: 108.860150
+Actual: 96.106842, Predicted: 109.512637
+Actual: 91.383499, Predicted: 97.434959
+Actual: 105.667412, Predicted: 110.726197
+Actual: 114.532669, Predicted: 109.120971
+Actual: 101.026405, Predicted: 108.057405
+
+waist - SVR Test Set Evaluation Metrics:
+Mean Squared Error (MSE): 28.2602
+Mean Absolute Error (MAE): 4.1334
+R-squared (R²): 0.3557
+Mean Absolute Percentage Error (MAPE): 3.95%
+Root Mean Squared Error (RMSE): 5.3160
+
+Model, scalers, and evaluation metrics for waist saved.
+
+Best Hyperparameters for wrist found by GridSearchCV: {'C': 10, 'epsilon': 0.1, 'gamma': 0.01}
+
+Actual vs Predicted Values for wrist (for the test set):
+Actual: 16.664995, Predicted: 17.341366
+Actual: 17.033377, Predicted: 16.850988
+Actual: 19.653090, Predicted: 18.796696
+Actual: 20.199099, Predicted: 19.291794
+Actual: 16.984095, Predicted: 17.300627
+Actual: 18.001572, Predicted: 17.398140
+Actual: 17.154303, Predicted: 17.285160
+Actual: 17.917271, Predicted: 17.196274
+Actual: 15.934265, Predicted: 16.805625
+Actual: 16.911770, Predicted: 16.290748
+Actual: 16.845716, Predicted: 17.999298
+Actual: 17.567074, Predicted: 17.702710
+Actual: 17.912607, Predicted: 17.757722
+Actual: 18.507179, Predicted: 19.302241
+Actual: 18.423059, Predicted: 17.917655
+Actual: 19.637758, Predicted: 17.336831
+Actual: 20.558201, Predicted: 19.446600
+Actual: 19.492577, Predicted: 19.610784
+Actual: 19.351046, Predicted: 18.562643
+Actual: 16.968439, Predicted: 18.911026
+Actual: 19.732920, Predicted: 18.028490
+Actual: 18.018183, Predicted: 19.045626
+Actual: 18.720051, Predicted: 17.913911
+Actual: 18.840487, Predicted: 17.657966
+Actual: 19.274334, Predicted: 18.312031
+Actual: 17.786234, Predicted: 16.635773
+Actual: 17.281450, Predicted: 17.790949
+Actual: 17.809790, Predicted: 18.749640
+Actual: 17.029860, Predicted: 18.040969
+Actual: 16.715219, Predicted: 17.035066
+Actual: 16.013901, Predicted: 16.718680
+Actual: 18.156986, Predicted: 17.589742
+Actual: 16.537855, Predicted: 17.601040
+Actual: 16.090740, Predicted: 17.009935
+Actual: 20.223963, Predicted: 18.753381
+Actual: 17.777857, Predicted: 17.233757
+Actual: 18.124622, Predicted: 17.530696
+Actual: 17.251596, Predicted: 17.444464
+Actual: 18.930347, Predicted: 18.974473
+Actual: 19.612776, Predicted: 18.732402
+Actual: 18.828554, Predicted: 18.979839
+Actual: 17.134239, Predicted: 18.089681
+Actual: 18.346630, Predicted: 18.389193
+Actual: 17.287640, Predicted: 17.256103
+Actual: 18.575335, Predicted: 17.782115
+Actual: 17.407980, Predicted: 17.414124
+Actual: 16.483751, Predicted: 17.417062
+Actual: 17.185268, Predicted: 17.819748
+Actual: 18.161568, Predicted: 17.975182
+Actual: 17.549261, Predicted: 17.087760
+Actual: 17.003963, Predicted: 17.829569
+Actual: 16.903158, Predicted: 17.154711
+Actual: 18.384966, Predicted: 18.413009
+Actual: 15.821582, Predicted: 17.224017
+
+wrist - SVR Test Set Evaluation Metrics:
+Mean Squared Error (MSE): 0.7433
+Mean Absolute Error (MAE): 0.7072
+R-squared (R²): 0.4586
+Mean Absolute Percentage Error (MAPE): 3.94%
+Root Mean Squared Error (RMSE): 0.8622
+
+Model, scalers, and evaluation metrics for wrist saved.

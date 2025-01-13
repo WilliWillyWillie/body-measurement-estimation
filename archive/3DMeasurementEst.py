@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.svm import SVR
 from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import GridSearchCV
 
 # Load the two CSV files
 estimated_2D = pd.read_csv("data/MLData/estimated_2D_measurements.csv")  # File 1
@@ -46,15 +47,15 @@ y_pred_scaled = svr.predict(x_scaled)
 y_pred = scaler_y.inverse_transform(y_pred_scaled.reshape(-1, 1))
 
 # Plot the actual vs predicted values
-plt.figure(figsize=(8, 6))
-plt.scatter(x_values, y_values, color='blue', label='Estimated  3D vs 2D Measurements')
-plt.scatter(x_values, y_pred, color='red', label='SVR Predicted Values')
-plt.xlabel('2D Measurement (wrist width)')
-plt.ylabel('Estimated 3D Measurement (wrist girth)')
-plt.title('SVR Prediction: 2D Measurements vs. Estimated  3D Measurements')
-plt.legend()
-plt.grid(True)
-plt.show()
+# plt.figure(figsize=(8, 6))
+# plt.scatter(x_values, y_values, color='blue', label='Estimated  3D vs 2D Measurements')
+# plt.scatter(x_values, y_pred, color='red', label='SVR Predicted Values')
+# plt.xlabel('2D Measurement (wrist width)')
+# plt.ylabel('Estimated 3D Measurement (wrist girth)')
+# plt.title('SVR Prediction: 2D Measurements vs. Estimated  3D Measurements')
+# plt.legend()
+# plt.grid(True)
+# plt.show()
 
 def predict_3d_measurement(est_2d_value):
   """
@@ -80,7 +81,7 @@ def predict_3d_measurement(est_2d_value):
   return predicted_3d[0][0]  # Extract the predicted value
 
 # Example usage: predict 3D measurement for a new estimated 2D value
-new_est_2d_value = 32.72033598364853  # Replace with your desired estimated 2D measurement (ankle width)
+new_est_2d_value = 4.803419891668826  # Replace with your desired estimated 2D measurement (ankle width)
 predicted_3d_value = predict_3d_measurement(new_est_2d_value)
 
 print("Estimated 2D measurement:", new_est_2d_value)
