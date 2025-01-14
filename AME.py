@@ -1,5 +1,5 @@
 # Step 1: Import dependencies.
-import mediapipe as mp
+import mediapipe as mp 
 import numpy as np
 import cv2
 import math
@@ -19,7 +19,6 @@ PoseLandmarker = mp.tasks.vision.PoseLandmarker
 PoseLandmarkerOptions = mp.tasks.vision.PoseLandmarkerOptions
 PoseLandmarkerResult = mp.tasks.vision.PoseLandmarkerResult
 VisionRunningMode = mp.tasks.vision.RunningMode
-
 
 def main():
     # STEP 3: Create a PoseLandmarker object.
@@ -65,7 +64,6 @@ def main():
         print(measurements)
 
 
-
 def normalize_poselandmarks(pose_landmarks_list, height, width):
     coords = []
     for pose_landmark in pose_landmarks_list[0]:
@@ -94,7 +92,6 @@ def coords_to_measurements(coords, mask):
     }
 
     i = 8
-
 
     upper_edge = searchVerticalEdge(measurement_points['height'][0], -i, mask)
     lower_edge = searchVerticalEdge(measurement_points['height'][1], i, mask)
@@ -234,7 +231,6 @@ def searchVerticalEdge(coords, step, mask):
         if step % 1 != 0:
             return x, y
 
-
 def searchHorizontalEdge(coords, step, mask):
     x, y = coords
 
@@ -244,7 +240,6 @@ def searchHorizontalEdge(coords, step, mask):
         x -= step
         step = step / 2
     return x, y
-
 
 def searchDiagonalEdge(coords1, coords2, m, step, mask):
     x1, y1 = coords1
@@ -260,13 +255,11 @@ def searchDiagonalEdge(coords1, coords2, m, step, mask):
         step = step / 2
     return x2, y2
 
-
 def getDiagonalMidPoint(coords1, coords2):
     x1, y1 = coords1
     x2, y2 = coords2
 
     return [((x1 + x2) / 2), ((y1 + y2) / 2)]
-
 
 def getUpperPartialPoint(coords1, coords2):
     x1, y1 = coords1
@@ -274,13 +267,11 @@ def getUpperPartialPoint(coords1, coords2):
 
     return [((2 * x1 + x2) / 3), ((2 * y1 + y2) / 3)]
 
-
 def getLowerPartialPoint(coords1, coords2):
     x1, y1 = coords1
     x2, y2 = coords2
 
     return [((x1 + 2 * x2) / 3), ((y1 + 2 * y2) / 3)]
-
 
 def getSlope(coords1, coords2):
     x1, y1 = coords1
@@ -288,7 +279,6 @@ def getSlope(coords1, coords2):
 
     # Get slope between coords1 and coords2
     return (y2 - y1) / (x2 - x1)
-
 
 def getPerpendicularSlope(coords1, coords2):
     x1, y1 = coords1
@@ -303,7 +293,6 @@ def findPointDistance(coords1, coords2):
     x2, y2 = coords2
 
     return math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
-
 
 if __name__ == "__main__":
     main()
