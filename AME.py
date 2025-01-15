@@ -54,8 +54,7 @@ def main():
         # Step 8: Transform coordinates into 2d measurements in cm
         measurements = coords_to_measurements(normalized_coords, visualized_mask)
 
-        print(measurements)
-
+        # Step 9: Predict 3d measurements
         for part in measurements:
             if part in ['ankle-width', 'bicep-width', 'calf-width', 'forearm-width', 'hip-width', 'thigh-width', 'waist-width', 'wrist-width']:
                 measurements[part] = predict_3d_measurement(part.split('-')[0], measurements[part])
@@ -63,16 +62,13 @@ def main():
 
         print(measurements)
 
-
 def normalize_poselandmarks(pose_landmarks_list, height, width):
     coords = []
     for pose_landmark in pose_landmarks_list[0]:
         coords.append([round(pose_landmark.x * width), round(pose_landmark.y * height)])
     return coords
 
-
 def coords_to_measurements(coords, mask):
-    # Step 1: Create a dictionary for 13 body parts with correspoding coords
     actual_height = int(input("Enter Heigth in cm: "))
 
     measurement_points = {
@@ -92,7 +88,6 @@ def coords_to_measurements(coords, mask):
     }
 
     i = 8
-
     upper_edge = searchVerticalEdge(measurement_points['height'][0], -i, mask)
     lower_edge = searchVerticalEdge(measurement_points['height'][1], i, mask)
     measurement_points['height'] = actual_height
@@ -174,7 +169,6 @@ def coords_to_measurements(coords, mask):
             right_edge = searchHorizontalEdge(traversing_point, i, mask)
             measurement_points[part] = (right_edge[0] - left_edge[0])
     
-    # Convert pixel to cm measurement and account for the 10% margin of error
     for part in measurement_points:
         if part in ['forearm-width', 'hip-width', 'thigh-width']:
             error_margin = .85
@@ -193,7 +187,6 @@ def predict_3d_measurement(part, est_2d_value):
         model_data = joblib.load(f'./model/SVR/svr_{part}_model.pkl')
         model, scaler_x, scaler_y = model_data['model'], model_data['scaler_x'], model_data['scaler_y']
 
-        # Prepare input
         new_x_scaled = scaler_x.transform([[est_2d_value]])
         pred_scaled = model.predict(new_x_scaled)
         predicted_3d = scaler_y.inverse_transform(pred_scaled.reshape(-1, 1))
@@ -201,7 +194,6 @@ def predict_3d_measurement(part, est_2d_value):
         return predicted_3d[0][0]
     elif part in ['ankle', 'calf', 'hip', 'waist']:
         """Predicts a 3D measurement given a 2D input using a Polynomial Regression model."""
-        # Load the polynomial model and associated scalers
         model_data = joblib.load(f'./model/SVR/poly_{part}_model.pkl')
         model, scaler_x, scaler_y, poly_features = (
             model_data['model'],
@@ -210,11 +202,9 @@ def predict_3d_measurement(part, est_2d_value):
             model_data['poly_features'],
         )
 
-        # Transform and scale the input
         new_x_poly = poly_features.transform([[est_2d_value]])
         new_x_scaled = scaler_x.transform(new_x_poly)
 
-        # Predict and inverse-transform the output
         pred_scaled = model.predict(new_x_scaled)
         predicted_3d = scaler_y.inverse_transform(pred_scaled.reshape(-1, 1))
 
@@ -243,7 +233,7 @@ def searchHorizontalEdge(coords, step, mask):
 
 def searchDiagonalEdge(coords1, coords2, m, step, mask):
     x1, y1 = coords1
-    x2, y2 = coords2  # This would be the point used for searching the edge
+    x2, y2 = coords2  
 
     while step % 0.0625 == 0:
         while str(mask[round(y2), round(x2)]) == "[255. 255. 255.]":
@@ -277,16 +267,13 @@ def getSlope(coords1, coords2):
     x1, y1 = coords1
     x2, y2 = coords2
 
-    # Get slope between coords1 and coords2
     return (y2 - y1) / (x2 - x1)
 
 def getPerpendicularSlope(coords1, coords2):
     x1, y1 = coords1
     x2, y2 = coords2
 
-    # Get slope between coords1 and coords2
     return -1 / ((y2 - y1) / (x2 - x1))
-
 
 def findPointDistance(coords1, coords2):
     x1, y1 = coords1
