@@ -210,21 +210,25 @@ def coords_to_measurements(coords, mask, x):
             right_edge = searchHorizontalEdge(traversing_point, i, mask)
             measurement_points[part] = (right_edge[0] - left_edge[0])
     
-    # Convert pixel to cm measurement and account for the 10% margin of error
     error_margin = 1
     for part in measurement_points:
+        if part in ['forearm-girth', 'hip-girth', 'thigh-girth']:
+            error_margin = .85
+        elif part in ['waist-girth']:
+            error_margin = .9
+        else:
+            error_margin = 1
         if part != "height":
             measurement_points[part] = measurement_points[part] * cm_per_px * error_margin
 
     return measurement_points
 
 def predict_3d_measurement(part, est_2d_value):
-    if part in ['bicep', 'forearm', 'thigh', 'wrist']:
+    if part in ['bicep', 'thigh', 'wrist', 'forearm']:
         """Predicts a 3D measurement given a 2D input."""
-        model_data = joblib.load(f'svr_{part}_model.pkl')
+        model_data = joblib.load(f'./model/SVR/svr_{part}_model.pkl')
         model, scaler_x, scaler_y = model_data['model'], model_data['scaler_x'], model_data['scaler_y']
 
-        # Prepare input
         new_x_scaled = scaler_x.transform([[est_2d_value]])
         pred_scaled = model.predict(new_x_scaled)
         predicted_3d = scaler_y.inverse_transform(pred_scaled.reshape(-1, 1))
@@ -232,8 +236,7 @@ def predict_3d_measurement(part, est_2d_value):
         return predicted_3d[0][0]
     elif part in ['ankle', 'calf', 'hip', 'waist']:
         """Predicts a 3D measurement given a 2D input using a Polynomial Regression model."""
-        # Load the polynomial model and associated scalers
-        model_data = joblib.load(f'poly_{part}_model.pkl')
+        model_data = joblib.load(f'./model/SVR/poly_{part}_model.pkl')
         model, scaler_x, scaler_y, poly_features = (
             model_data['model'],
             model_data['scaler_x'],
@@ -241,11 +244,9 @@ def predict_3d_measurement(part, est_2d_value):
             model_data['poly_features'],
         )
 
-        # Transform and scale the input
         new_x_poly = poly_features.transform([[est_2d_value]])
         new_x_scaled = scaler_x.transform(new_x_poly)
 
-        # Predict and inverse-transform the output
         pred_scaled = model.predict(new_x_scaled)
         predicted_3d = scaler_y.inverse_transform(pred_scaled.reshape(-1, 1))
 
